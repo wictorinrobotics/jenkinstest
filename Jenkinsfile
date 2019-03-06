@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'wictorinrobotics/jenkinstest:latest' } }
+    agent { docker { image 'wictorinrobotics/jenkinsdocker:latest' } }
     stages {
         stage('build') {
             steps {
