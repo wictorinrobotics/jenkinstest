@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.5.1' } }
+    agent { docker { image 'wictorinrobotics/jenkinstest:latest' } }
     stages {
         stage('build') {
             steps {
@@ -10,7 +10,12 @@ pipeline {
                 '''
             }
         }
-        stage('Deploy') {
+        stage('Test'){
+            steps {
+                sh 'node --version'
+            }
+        }
+        /*stage('Deploy') {
             steps {
                 
                 timeout(time: 1, unit: 'MINUTES') {                
@@ -19,7 +24,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
     }
     post {
         always {
